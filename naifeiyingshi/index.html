@@ -1,0 +1,786 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>奈菲影视 - 剧集片单与观看指南</title>
+<meta name="description" content="奈菲影视汇集悬疑、科幻、犯罪、喜剧等类型剧集片单，提供新剧上线动态、深度解析、观看顺序建议与观众讨论，适合想快速找到可看剧集的观众。">
+<meta name="keywords" content="悬疑剧集,科幻片单,犯罪题材,喜剧推荐,剧集解析">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230f2f4f'/%3E%3Cpath d='M18 44V20h6l16 18V20h6v24h-6L24 26v18z' fill='%23f4c95d'/%3E%3C/svg%3E">
+<style>
+:root{
+  --bg:#f6f4ef;
+  --panel:#ffffff;
+  --panel-soft:#fbf9f4;
+  --ink:#1c1b19;
+  --ink-soft:#4d4a43;
+  --muted:#7a756b;
+  --line:#e4dfd4;
+  --brand:#0f2f4f;
+  --brand-2:#1f4e79;
+  --accent:#c9a227;
+  --accent-soft:#f4e7c3;
+  --danger:#b23a3a;
+  --radius:14px;
+  --shadow:0 8px 24px rgba(16,30,45,.08);
+  --sticky-offset:112px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  font-family:"Noto Sans SC","PingFang SC","Microsoft YaHei",system-ui,-apple-system,sans-serif;
+  color:var(--ink);
+  background:var(--bg);
+  line-height:1.7;
+  font-size:15px;
+}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+a:hover{color:var(--brand-2)}
+h1,h2,h3,h4{margin:0;line-height:1.3;font-weight:700}
+p{margin:0 0 12px}
+ul{margin:0;padding:0;list-style:none}
+button{font:inherit}
+:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+
+/* sticky */
+.sticky-shell{position:sticky;top:0;z-index:50}
+.announce{
+  background:var(--brand);
+  color:#f5f0e1;
+  font-size:13px;
+  padding:8px 20px;
+  display:flex;justify-content:center;gap:18px;flex-wrap:wrap;align-items:center;
+}
+.announce strong{color:var(--accent)}
+.site-header{
+  background:rgba(255,255,255,.96);
+  backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--line);
+  padding:12px 20px;
+}
+.header-inner{
+  max-width:1360px;margin:0 auto;
+  display:flex;align-items:center;gap:24px;flex-wrap:wrap;
+}
+.brand{display:flex;align-items:center;gap:10px;font-weight:800;font-size:21px;color:var(--brand);letter-spacing:.5px}
+.brand svg{width:36px;height:36px;flex-shrink:0}
+.nav-main{display:flex;gap:4px;flex-wrap:wrap;margin-left:auto}
+.nav-main a{
+  padding:6px 12px;border-radius:999px;font-size:14px;color:var(--ink-soft);
+  transition:background .15s;
+}
+.nav-main a:hover{background:var(--accent-soft);color:var(--brand)}
+.search-mini{display:flex;gap:6px;align-items:center;margin-left:8px}
+.search-mini input{
+  border:1px solid var(--line);border-radius:999px;padding:6px 14px;font-size:13px;
+  width:170px;background:var(--panel-soft);
+}
+.search-mini input:focus{outline:2px solid var(--accent);border-color:transparent}
+.search-mini button{
+  border:0;background:var(--brand);color:#fff;border-radius:999px;padding:6px 14px;font-size:13px;cursor:pointer;
+}
+.search-mini button:hover{background:var(--brand-2)}
+
+/* layout */
+.hero{
+  background:linear-gradient(135deg,#0f2f4f 0%,#173e63 50%,#1f4e79 100%);
+  color:#f6f1e3;
+  padding:48px 20px 40px;
+}
+.hero-inner{max-width:1360px;margin:0 auto;display:grid;grid-template-columns:1.4fr .9fr;gap:40px;align-items:center}
+.hero h1{font-size:clamp(30px,4.5vw,46px);letter-spacing:2px;color:#fff;margin-bottom:10px}
+.hero .lead{font-size:16px;color:#d8d2c2;max-width:620px;margin-bottom:22px}
+.hero-tags{display:flex;gap:10px;flex-wrap:wrap}
+.hero-tags a{
+  background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);
+  padding:7px 16px;border-radius:999px;font-size:13px;color:#f6f1e3;
+}
+.hero-tags a:hover{background:var(--accent);color:var(--brand);border-color:var(--accent)}
+.hero-art{
+  display:flex;justify-content:center;align-items:center;
+}
+.hero-art svg{width:100%;max-width:360px;height:auto;filter:drop-shadow(0 12px 28px rgba(0,0,0,.35))}
+
+.layout{
+  max-width:1360px;margin:0 auto;padding:30px 20px 50px;
+  display:grid;grid-template-columns:180px minmax(0,1fr) 260px;gap:28px;
+  align-items:start;
+}
+.layout [id]{scroll-margin-top:var(--sticky-offset)}
+
+/* left channel */
+.channel-nav{
+  position:sticky;top:calc(var(--sticky-offset) + 10px);
+  background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);
+  padding:14px 12px;box-shadow:var(--shadow);
+}
+.channel-nav h2{font-size:14px;color:var(--muted);letter-spacing:1px;margin-bottom:10px;padding-left:6px}
+.channel-nav a{
+  display:block;padding:7px 10px;border-radius:8px;font-size:14px;color:var(--ink-soft);
+}
+.channel-nav a:hover{background:var(--accent-soft);color:var(--brand)}
+
+/* main sections */
+.section{margin-bottom:34px}
+.section-head{display:flex;align-items:baseline;gap:12px;margin-bottom:14px;flex-wrap:wrap}
+.section-head h2{font-size:20px;color:var(--brand);position:relative;padding-left:12px}
+.section-head h2::before{
+  content:"";position:absolute;left:0;top:4px;bottom:4px;width:4px;border-radius:2px;background:var(--accent);
+}
+.section-head .sub{font-size:13px;color:var(--muted)}
+
+/* overview */
+.overview{
+  background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);
+  padding:22px 24px;box-shadow:var(--shadow);font-size:14.5px;color:var(--ink-soft);
+}
+.overview p:last-child{margin-bottom:0}
+
+/* cards */
+.card-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px}
+.card{
+  background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);
+  overflow:hidden;box-shadow:var(--shadow);display:flex;flex-direction:column;
+  transition:transform .15s;
+}
+.card:hover{transform:translateY(-3px)}
+.card img{width:100%;height:150px;object-fit:cover;background:#ddd}
+.card-body{padding:12px 14px 14px;display:flex;flex-direction:column;gap:6px;flex:1}
+.card-body h3{font-size:15px;color:var(--ink);line-height:1.35}
+.card-type{font-size:11px;color:var(--accent);font-weight:700;letter-spacing:.5px}
+.card-tags{display:flex;gap:6px;flex-wrap:wrap}
+.card-tags span{font-size:11px;background:var(--panel-soft);border:1px solid var(--line);color:var(--muted);padding:1px 8px;border-radius:999px}
+.card-desc{font-size:12.5px;color:var(--ink-soft);line-height:1.55;flex:1}
+.card-meta{display:flex;justify-content:space-between;font-size:11.5px;color:var(--muted);border-top:1px dashed var(--line);padding-top:8px;margin-top:2px}
+
+/* updates list */
+.update-list{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden}
+.update-item{display:flex;gap:14px;padding:12px 18px;border-bottom:1px solid var(--line);align-items:flex-start}
+.update-item:last-child{border-bottom:0}
+.update-time{font-size:12px;color:var(--muted);min-width:88px;padding-top:2px;flex-shrink:0}
+.update-name{font-weight:700;font-size:14px;color:var(--brand)}
+.update-desc{font-size:13px;color:var(--ink-soft)}
+
+/* categories */
+.cat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.cat-item{
+  background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);
+  padding:16px 14px;text-align:center;box-shadow:var(--shadow);
+  font-size:14px;font-weight:700;color:var(--brand);
+  transition:background .15s;
+}
+.cat-item:hover{background:var(--accent-soft)}
+.cat-item span{display:block;font-size:12px;font-weight:400;color:var(--muted);margin-top:4px}
+
+/* analysis */
+.analysis{
+  background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);
+  padding:26px 28px;box-shadow:var(--shadow);font-size:14.5px;color:var(--ink-soft);
+}
+.analysis h3{font-size:17px;color:var(--brand);margin:22px 0 10px}
+.analysis h3:first-child{margin-top:0}
+.analysis p{margin-bottom:12px}
+.analysis ul{padding-left:20px;list-style:disc;margin-bottom:14px}
+.analysis li{margin-bottom:6px}
+.analysis strong{color:var(--ink)}
+
+/* guide */
+.guide{
+  background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);
+  padding:22px 24px;box-shadow:var(--shadow);font-size:14.5px;color:var(--ink-soft);
+}
+.guide-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:14px}
+.guide-step{background:var(--panel-soft);border-radius:10px;padding:14px}
+.guide-step b{display:block;color:var(--brand);font-size:14px;margin-bottom:4px}
+.guide-step span{font-size:13px;color:var(--ink-soft)}
+
+/* faq */
+.faq details{
+  background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);
+  padding:14px 18px;margin-bottom:10px;box-shadow:var(--shadow);
+}
+.faq summary{font-weight:700;font-size:14.5px;color:var(--brand);cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:10px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";font-size:18px;color:var(--accent);line-height:1}
+.faq details[open] summary::after{content:"−"}
+.faq .answer{font-size:13.5px;color:var(--ink-soft);margin-top:10px;padding-top:10px;border-top:1px dashed var(--line)}
+
+/* comments */
+.comment-list{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.comment{
+  background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);
+  padding:14px 16px;box-shadow:var(--shadow);font-size:13.5px;color:var(--ink-soft);
+}
+.comment .who{font-weight:700;color:var(--brand);font-size:13px;margin-bottom:4px;display:flex;justify-content:space-between}
+.comment .who time{font-weight:400;color:var(--muted);font-size:11.5px}
+
+/* news */
+.news-list{display:grid;gap:12px}
+.news-item{
+  background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);
+  padding:16px 20px;box-shadow:var(--shadow);display:flex;gap:16px;align-items:flex-start;
+}
+.news-item img{width:110px;height:74px;object-fit:cover;border-radius:8px;flex-shrink:0}
+.news-item h3{font-size:15px;color:var(--brand);margin-bottom:4px}
+.news-item time{font-size:12px;color:var(--muted)}
+.news-item p{font-size:13px;color:var(--ink-soft);margin:4px 0 0}
+
+/* related */
+.related-tags{display:flex;flex-wrap:wrap;gap:8px}
+.related-tags a{
+  background:var(--panel);border:1px solid var(--line);border-radius:999px;
+  padding:6px 16px;font-size:13px;color:var(--brand);box-shadow:var(--shadow);
+}
+.related-tags a:hover{background:var(--accent-soft)}
+
+/* ranking */
+.ranking{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden}
+.rank-row{display:flex;align-items:center;gap:12px;padding:11px 18px;border-bottom:1px solid var(--line);font-size:14px}
+.rank-row:last-child{border-bottom:0}
+.rank-num{font-weight:800;font-size:16px;color:var(--accent);min-width:26px}
+.rank-title{font-weight:700;color:var(--brand);flex:1}
+.rank-type{font-size:12px;color:var(--muted)}
+.rank-score{font-size:12px;color:var(--danger);font-weight:700}
+
+/* aside */
+.aside-box{
+  background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);
+  padding:16px;box-shadow:var(--shadow);margin-bottom:18px;
+}
+.aside-box h3{font-size:15px;color:var(--brand);margin-bottom:10px}
+.hot-list li{padding:7px 0;border-bottom:1px dashed var(--line);font-size:13px;display:flex;gap:8px}
+.hot-list li:last-child{border-bottom:0}
+.hot-list .dot{color:var(--accent);font-weight:700}
+.aside-note{font-size:12.5px;color:var(--muted);line-height:1.6}
+
+/* footer */
+.site-footer{
+  background:#0d2237;color:#c9c3b4;padding:36px 20px 22px;font-size:13px;
+}
+.footer-inner{max-width:1360px;margin:0 auto;display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:28px}
+.footer-brand{display:flex;align-items:center;gap:10px;font-size:19px;font-weight:800;color:#fff;margin-bottom:8px}
+.footer-brand svg{width:30px;height:30px}
+.footer-col h4{color:#f4e7c3;font-size:14px;margin-bottom:8px}
+.footer-col a{display:block;color:#bfb8a7;padding:2px 0;font-size:13px}
+.footer-col a:hover{color:var(--accent)}
+.footer-bottom{max-width:1360px;margin:26px auto 0;padding-top:16px;border-top:1px solid rgba(255,255,255,.12);display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;color:#8f897b;font-size:12px}
+
+/* noresults */
+#noResults{display:none;background:var(--panel-soft);border:1px dashed var(--line);border-radius:12px;padding:16px;color:var(--muted);font-size:13.5px;margin-top:10px}
+
+/* responsive */
+@media (max-width:1024px){
+  .layout{grid-template-columns:1fr;gap:24px}
+  .channel-nav{position:static;display:flex;flex-wrap:wrap;gap:4px;padding:10px}
+  .channel-nav h2{width:100%;margin-bottom:4px}
+  .channel-nav a{padding:6px 12px}
+  .hero-inner{grid-template-columns:1fr;gap:24px}
+  .hero-art{order:-1}
+  .hero-art svg{max-width:280px}
+  .cat-grid{grid-template-columns:repeat(4,1fr)}
+  .comment-list{grid-template-columns:1fr 1fr}
+  .footer-inner{grid-template-columns:1fr 1fr}
+}
+@media (max-width:740px){
+  :root{--sticky-offset:96px}
+  .header-inner{gap:12px}
+  .nav-main{order:3;width:100%;justify-content:flex-start;margin-left:0}
+  .search-mini{margin-left:auto}
+  .search-mini input{width:120px}
+  .layout{padding:18px 14px 40px}
+  .hero{padding:32px 14px 28px}
+  .cat-grid{grid-template-columns:1fr 1fr}
+  .comment-list{grid-template-columns:1fr}
+  .guide-steps{grid-template-columns:1fr}
+  .news-item{flex-direction:column}
+  .news-item img{width:100%;height:150px}
+  .footer-inner{grid-template-columns:1fr}
+  .analysis{padding:20px 18px}
+  .update-item{flex-direction:column;gap:2px}
+  .update-time{min-width:0}
+}
+</style>
+<script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+
+<!-- 吸顶公告条 + 吸顶页头 -->
+<div class="sticky-shell">
+  <div class="announce" role="status">
+    <span><strong>本周新增</strong> 14 部剧集片单</span>
+    <span>《暗河回响》第 6 集已上线</span>
+    <span>秋季档悬疑专题 12 部定档</span>
+  </div>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="/#top" aria-label="奈菲影视首页">
+        <svg viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="14" fill="#0f2f4f"/><path d="M18 44V20h6l16 18V20h6v24h-6L24 26v18z" fill="#f4c95d"/></svg>
+        奈菲影视
+      </a>
+      <nav class="nav-main" aria-label="主题导航">
+        <a href="/#overview">领域概览</a>
+        <a href="/#featured">精选片单</a>
+        <a href="/#updates">更新动态</a>
+        <a href="/#categories">分类入口</a>
+        <a href="/#analysis">深度解析</a>
+        <a href="/#faq">常见问答</a>
+      </nav>
+      <form class="search-mini" role="search" id="searchForm" onsubmit="return false;">
+        <input type="search" id="searchInput" placeholder="搜索剧名或类型…" aria-label="搜索剧集">
+        <button type="button" id="searchBtn">查找</button>
+      </form>
+    </div>
+  </header>
+</div>
+
+<!-- 主题首屏 -->
+<section class="hero" id="top">
+  <div class="hero-inner">
+    <div>
+      <h1>奈菲影视</h1>
+      <p class="lead">聚合悬疑、科幻、犯罪、喜剧、剧情等类型剧集片单，追踪新剧上线与更新节奏，提供观看顺序建议和具体条目解析。</p>
+      <div class="hero-tags">
+        <a href="/#featured">悬疑推理剧集</a>
+        <a href="/#featured">科幻世界观剧集</a>
+        <a href="/#updates">本周更新动态</a>
+        <a href="/#analysis">类型差异解析</a>
+        <a href="/#ranking">观众口碑榜单</a>
+      </div>
+    </div>
+    <div class="hero-art" aria-hidden="true">
+      <svg viewBox="0 0 360 300" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#f4c95d" stop-opacity=".85"/>
+            <stop offset="1" stop-color="#f4c95d" stop-opacity=".15"/>
+          </linearGradient>
+        </defs>
+        <rect x="20" y="40" width="320" height="200" rx="16" fill="#14395a" stroke="#2c5a82" stroke-width="2"/>
+        <rect x="40" y="62" width="120" height="68" rx="8" fill="#1f4e79"/>
+        <rect x="172" y="62" width="148" height="68" rx="8" fill="#1f4e79" opacity=".7"/>
+        <rect x="40" y="142" width="84" height="72" rx="8" fill="#1f4e79" opacity=".55"/>
+        <rect x="136" y="142" width="84" height="72" rx="8" fill="#1f4e79" opacity=".8"/>
+        <rect x="232" y="142" width="88" height="72" rx="8" fill="#1f4e79" opacity=".6"/>
+        <circle cx="100" cy="96" r="14" fill="url(#g1)"/>
+        <polygon points="96,88 96,104 110,96" fill="#0f2f4f"/>
+        <path d="M280 96h28M280 106h18" stroke="#f4c95d" stroke-width="3" stroke-linecap="round" opacity=".7"/>
+        <rect x="20" y="260" width="320" height="8" rx="4" fill="#2c5a82" opacity=".5"/>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- 主内容区：三栏门户 -->
+<div class="layout">
+
+  <!-- 左频道索引 -->
+  <nav class="channel-nav" aria-label="频道索引">
+    <h2>频道索引</h2>
+    <a href="/#overview">领域概览</a>
+    <a href="/#featured">精选片单</a>
+    <a href="/#updates">更新动态</a>
+    <a href="/#categories">分类入口</a>
+    <a href="/#analysis">深度解析</a>
+    <a href="/#guide">观看路径</a>
+    <a href="/#faq">常见问答</a>
+    <a href="/#comments">观众讨论</a>
+    <a href="/#news">相关资讯</a>
+    <a href="/#related">延伸方向</a>
+    <a href="/#ranking">口碑榜单</a>
+  </nav>
+
+  <!-- 中主内容 -->
+  <main>
+
+    <!-- 1 主题领域概览 -->
+    <section class="section" id="overview">
+      <div class="section-head"><h2>奈菲影视片单覆盖哪些方向</h2><span class="sub">类型全景与当前值得关注的条目</span></div>
+      <div class="overview">
+        <p>奈菲影视聚合的剧集以强情节类型为主，悬疑推理、犯罪纪实、科幻世界观、都市剧情和黑色喜剧是当前片单量最集中的五个方向。悬疑推理细分出本格密室、社会派追凶和单元探案三类；犯罪纪实偏向真实案件改编与庭审攻防；科幻世界观则围绕时间循环、近未来伦理和太空生存展开。</p>
+        <p>从具体条目看，《暗河回响》以连环失踪案为线索展开双线追凶，《雾港档案》用单元剧形式处理港口城市的旧案翻查，《零点频率》把电台信号与时间循环结合，《玻璃城证词》聚焦法庭内的证据博弈，《北纬四十七度》则是一部慢节奏的边境生活剧。喜剧方向有《合租守则》的都市群像和《审批科日常》的体制内黑色幽默。</p>
+        <p>当前值得关注的是秋季档集中上线的悬疑专题，共 12 部定档，其中 5 部为短剧形态，单季 6—8 集；同时犯罪纪实类新增了 3 部庭审题材条目，更新节奏普遍为周更两集。科幻方向则偏向单季完结的限定剧，适合集中观看。</p>
+      </div>
+    </section>
+
+    <!-- 2 精选内容推荐 -->
+    <section class="section" id="featured">
+      <div class="section-head"><h2>精选剧集片单</h2><span class="sub">按类型与看点整理的当前可看条目</span></div>
+      <div class="card-grid" id="featuredGrid">
+        <article class="card">
+          <img src="https://picsum.photos/seed/anhe-huixiang01/400/300" alt="暗河回响剧集海报" width="400" height="300" loading="lazy">
+          <div class="card-body">
+            <span class="card-type">悬疑 / 追凶</span>
+            <h3>暗河回响</h3>
+            <div class="card-tags"><span>连环失踪案</span><span>双线叙事</span><span>短剧</span></div>
+            <p class="card-desc">刑警与记者分别追查同一组失踪案，两条时间线在第 4 集交汇。目前更新至第 6 集，单集 45 分钟。</p>
+            <div class="card-meta"><span>更新至 6 集</span><span>口碑 8.7</span></div>
+          </div>
+        </article>
+        <article class="card">
+          <img src="https://picsum.photos/seed/wugang-dangan02/400/300" alt="雾港档案单元剧封面" width="400" height="300" loading="lazy">
+          <div class="card-body">
+            <span class="card-type">悬疑 / 单元探案</span>
+            <h3>雾港档案</h3>
+            <div class="card-tags"><span>旧案翻查</span><span>港口城市</span><span>单元剧</span></div>
+            <p class="card-desc">每两集处理一桩港口旧案，主角是档案室调任的警员。案件之间用一条暗线串联，适合按单元跳看。</p>
+            <div class="card-meta"><span>全 16 集完结</span><span>口碑 8.3</span></div>
+          </div>
+        </article>
+        <article class="card">
+          <img src="https://picsum.photos/seed/lingdian-pinlv03/400/300" alt="零点频率科幻剧集封面" width="400" height="300" loading="lazy">
+          <div class="card-body">
+            <span class="card-type">科幻 / 时间循环</span>
+            <h3>零点频率</h3>
+            <div class="card-tags"><span>电台信号</span><span>时间循环</span><span>限定剧</span></div>
+            <p class="card-desc">深夜电台主持人发现每晚零点收到的听众来电来自同一天。8 集限定剧，世界观在最后两集收束。</p>
+            <div class="card-meta"><span>全 8 集完结</span><span>口碑 8.9</span></div>
+          </div>
+        </article>
+        <article class="card">
+          <img src="https://picsum.photos/seed/boli-cheng04/400/300" alt="玻璃城证词法庭剧海报" width="400" height="300" loading="lazy">
+          <div class="card-body">
+            <span class="card-type">犯罪 / 庭审</span>
+            <h3>玻璃城证词</h3>
+            <div class="card-tags"><span>证据博弈</span><span>庭审攻防</span><span>社会派</span></div>
+            <p class="card-desc">一起商业泄密案牵出三年前的旧案，辩护律师与公诉人在证据链上反复拉锯，重点看庭辩细节。</p>
+            <div class="card-meta"><span>更新至 9 集</span><span>口碑 8.5</span></div>
+          </div>
+        </article>
+        <article class="card">
+          <img src="https://picsum.photos/seed/beiw47-du05/400/300" alt="北纬四十七度边境生活剧封面" width="400" height="300" loading="lazy">
+          <div class="card-body">
+            <span class="card-type">剧情 / 边境生活</span>
+            <h3>北纬四十七度</h3>
+            <div class="card-tags"><span>慢节奏</span><span>群像</span><span>边境小镇</span></div>
+            <p class="card-desc">边境小镇上三个家庭的日常与迁徙选择，节奏慢、对白少，适合喜欢生活流群像的观众。</p>
+            <div class="card-meta"><span>全 12 集完结</span><span>口碑 8.1</span></div>
+          </div>
+        </article>
+        <article class="card">
+          <img src="https://picsum.photos/seed/hezu-shouze06/400/300" alt="合租守则都市喜剧封面" width="400" height="300" loading="lazy">
+          <div class="card-body">
+            <span class="card-type">喜剧 / 都市群像</span>
+            <h3>合租守则</h3>
+            <div class="card-tags"><span>合租日常</span><span>轻喜剧</span><span>单元</span></div>
+            <p class="card-desc">四个职业不同的年轻人合租一套老房，每集围绕一条合租规则展开，单集 25 分钟，下饭友好。</p>
+            <div class="card-meta"><span>更新至 14 集</span><span>口碑 7.9</span></div>
+          </div>
+        </article>
+        <article class="card">
+          <img src="https://picsum.photos/seed/shenpi-rike07/400/300" alt="审批科日常黑色喜剧封面" width="400" height="300" loading="lazy">
+          <div class="card-body">
+            <span class="card-type">喜剧 / 黑色幽默</span>
+            <h3>审批科日常</h3>
+            <div class="card-tags"><span>体制内</span><span>流程荒诞</span><span>短剧</span></div>
+            <p class="card-desc">一个基层审批科处理各类奇葩申请，用荒诞流程折射现实。每集一个申请案例，短小紧凑。</p>
+            <div class="card-meta"><span>全 10 集完结</span><span>口碑 8.2</span></div>
+          </div>
+        </article>
+        <article class="card">
+          <img src="https://picsum.photos/seed/shenhai-xinhao08/400/300" alt="深海异常信号档案科幻封面" width="400" height="300" loading="lazy">
+          <div class="card-body">
+            <span class="card-type">科幻 / 深海悬疑</span>
+            <h3>深海异常信号档案</h3>
+            <div class="card-tags"><span>深海站</span><span>信号异常</span><span>硬科幻</span></div>
+            <p class="card-desc">深海观测站接收到无法溯源的低频信号，六人小组在封闭空间内逐步分裂，偏硬科幻设定。</p>
+            <div class="card-meta"><span>全 6 集完结</span><span>口碑 8.6</span></div>
+          </div>
+        </article>
+      </div>
+      <div id="noResults">没有匹配的剧集条目，试试“悬疑”“科幻”“庭审”或具体剧名。</div>
+    </section>
+
+    <!-- 3 最新更新 / 动态 -->
+    <section class="section" id="updates">
+      <div class="section-head"><h2>最新更新与上线动态</h2><span class="sub">以 2026 年 11 月 8 日为基准</span></div>
+      <div class="update-list">
+        <div class="update-item"><span class="update-time">今天 09:30</span><div><span class="update-name">暗河回响</span> <span class="update-desc">第 6 集已上线，两条时间线首次正面交汇。</span></div></div>
+        <div class="update-item"><span class="update-time">今天 08:10</span><div><span class="update-name">玻璃城证词</span> <span class="update-desc">第 9 集更新，关键物证来源被当庭质疑。</span></div></div>
+        <div class="update-item"><span class="update-time">昨天 21:10</span><div><span class="update-name">合租守则</span> <span class="update-desc">第 14 集上线，新租客入住引发规则重写。</span></div></div>
+        <div class="update-item"><span class="update-time">11 月 7 日</span><div><span class="update-name">秋季悬疑专题</span> <span class="update-desc">12 部定档名单公布，其中 5 部为 6—8 集短剧。</span></div></div>
+        <div class="update-item"><span class="update-time">11 月 6 日</span><div><span class="update-name">零点频率</span> <span class="update-desc">全 8 集上线完毕，时间循环设定图公开。</span></div></div>
+        <div class="update-item"><span class="update-time">11 月 5 日</span><div><span class="update-name">雾港档案</span> <span class="update-desc">单元案件索引更新，新增第 9—12 集案件简介。</span></div></div>
+        <div class="update-item"><span class="update-time">11 月 4 日</span><div><span class="update-name">北纬四十七度</span> <span class="update-desc">导演访谈上线，谈边境群像的选角与取景。</span></div></div>
+        <div class="update-item"><span class="update-time">11 月 3 日</span><div><span class="update-name">审批科日常</span> <span class="update-desc">第 10 集完结，最后一案为“年度总结审批”。</span></div></div>
+        <div class="update-item"><span class="update-time">11 月 2 日</span><div><span class="update-name">深海异常信号档案</span> <span class="update-desc">第 5 集上线，信号源定位出现第二处坐标。</span></div></div>
+        <div class="update-item"><span class="update-time">11 月 1 日</span><div><span class="update-name">庭审题材专题</span> <span class="update-desc">新增 3 部庭审犯罪条目，含 1 部纪实改编。</span></div></div>
+      </div>
+    </section>
+
+    <!-- 4 分类入口 -->
+    <section class="section" id="categories">
+      <div class="section-head"><h2>按类型找剧</h2><span class="sub">八个可直接定位的类别入口</span></div>
+      <div class="cat-grid">
+        <a class="cat-item" href="/#featured">悬疑推理<span>本格 / 社会派</span></a>
+        <a class="cat-item" href="/#featured">犯罪庭审<span>证据攻防</span></a>
+        <a class="cat-item" href="/#featured">科幻世界观<span>循环 / 太空</span></a>
+        <a class="cat-item" href="/#featured">都市喜剧<span>群像 / 下饭</span></a>
+        <a class="cat-item" href="/#featured">黑色幽默<span>荒诞现实</span></a>
+        <a class="cat-item" href="/#featured">边境生活剧<span>慢节奏群像</span></a>
+        <a class="cat-item" href="/#featured">限定短剧<span>6—8 集</span></a>
+        <a class="cat-item" href="/#ranking">高口碑条目<span>评分 8.0 以上</span></a>
+      </div>
+    </section>
+
+    <!-- 5 深度解析正文 -->
+    <section class="section" id="analysis">
+      <div class="section-head"><h2>类型差异与观看判断</h2><span class="sub">悬疑、庭审、科幻三类剧集的具体区别</span></div>
+      <div class="analysis">
+        <h3>本格悬疑与社会派悬疑的判断标准</h3>
+        <p>本格悬疑的核心是“谜题—线索—解答”的闭环，观众被邀请与主角同步推理，线索在画面和对白中公平给出。《雾港档案》的单元案件属于典型本格结构：每两集一个案件，关键线索通常在前 20 分钟内出现。社会派悬疑则把重心放在动机和背景上，案件本身不复杂，但牵涉的社会关系网广，《暗河回响》更接近这一类，连环失踪案背后是整条产业链。</p>
+        <p>判断一部悬疑剧值不值得投入，可以先看两个指标：一是信息释放节奏，前两集是否给出至少两条可验证的线索；二是主角是否具备独立调查能力，而不是靠巧合推动。《暗河回响》在前两集用记者线补足了主角视角的盲区，这种双线设计通常比单主角推进更稳。</p>
+        <h3>庭审犯罪剧与追凶剧的叙事差别</h3>
+        <p>庭审剧的主战场在室内，冲突来自证据的合法性与证明力，《玻璃城证词》每一集都围绕一份证据展开攻防。追凶剧的主战场在室外，冲突来自时间压力和线索中断。两类剧的观看体验差异明显：庭审剧适合逐集细看，跳过一集可能错过证据链的关键一环；追凶剧更适合连着看，节奏靠外部事件推动。</p>
+        <ul>
+          <li><strong>庭审剧看什么：</strong>交叉询问的话术、证据排除规则、证人可信度。</li>
+          <li><strong>追凶剧看什么：</strong>时间线是否严密、线索回收是否干净、真凶揭晓是否早有铺垫。</li>
+          <li><strong>共同判断点：</strong>结局是否推翻前面的核心假设，以及推翻得是否合理。</li>
+        </ul>
+        <h3>科幻限定剧的世界观密度</h3>
+        <p>《零点频率》和《深海异常信号档案》都采用限定剧形态，前者 8 集、后者 6 集。限定剧的优势是世界观必须在有限集数内说清，不会拖出大量支线。判断一部科幻限定剧是否扎实，可以看设定规则是否在前三集明确给出，以及规则是否被严格遵循。《零点频率》在第二集就确立了“同一晚循环”的边界条件，后续冲突都围绕如何打破这个边界展开。</p>
+        <p>偏硬科幻的条目通常会有较多技术对白，《深海异常信号档案》用观测站的操作流程来呈现设定，理解门槛略高但代入感强。偏好轻设定的观众可以从《零点频率》入手，它的规则更接近情感叙事。</p>
+        <h3>短剧与常规剧集的投入比较</h3>
+        <p>单季 6—8 集的短剧，单集信息密度通常更高，适合一次看两到三集。常规 12—16 集的剧集，支线和人物弧线更完整，但中段容易放缓。以《雾港档案》为例，16 集的体量里前 4 集用于建立档案室的人际关系，第 5 集才进入第一个正式案件，着急看案情的观众可以从第 5 集切入再回补前情。</p>
+      </div>
+    </section>
+
+    <!-- 6 体验指南 / 消费路径 -->
+    <section class="section" id="guide">
+      <div class="section-head"><h2>观看顺序与投入判断</h2><span class="sub">从类型偏好到具体条目的选择路径</span></div>
+      <div class="guide">
+        <p>第一次接触奈菲影视片单，建议先按“能接受的单集时长”筛选，再按类型缩小范围。悬疑和庭审剧的信息密度高，适合整块时间；都市喜剧和短剧适合碎片时间。</p>
+        <div class="guide-steps">
+          <div class="guide-step"><b>第一步：定单集时长</b><span>25 分钟以内选《合租守则》《审批科日常》；45 分钟以上选《暗河回响》《玻璃城证词》。</span></div>
+          <div class="guide-step"><b>第二步：定叙事形态</b><span>喜欢一集一案选《雾港档案》；喜欢连续追凶选《暗河回响》；限定完结选《零点频率》。</span></div>
+          <div class="guide-step"><b>第三步：定理解门槛</b><span>轻设定从《零点频率》入手；硬科幻看《深海异常信号档案》；生活流看《北纬四十七度》。</span></div>
+        </div>
+        <p style="margin-top:16px">判断一个条目值不值得投入时间，可以看三点：前两集是否给出清晰的观看目标；主要角色是否有明确的行为动机；类型标签与实际内容是否一致。标签写“庭审”但实际以追凶为主，往往意味着剧集在类型定位上摇摆，前期容易劝退。</p>
+      </div>
+    </section>
+
+    <!-- 7 FAQ -->
+    <section class="section faq" id="faq">
+      <div class="section-head"><h2>常见问题</h2><span class="sub">关于类型、更新与选择的六个问答</span></div>
+      <details>
+        <summary>悬疑剧集一般多久更新一次？</summary>
+        <div class="answer">当前片单中的悬疑剧以周更为主，多数每周更新两集，短剧可能一次性放出全集。例如《暗河回响》为每周两集，已更新至第 6 集；《零点频率》则是 8 集一次性上线完毕。</div>
+      </details>
+      <details>
+        <summary>本格悬疑和社会派悬疑有什么区别？</summary>
+        <div class="answer">本格悬疑重在谜题与解答的公平性，线索会明确给出，观众可以同步推理；社会派悬疑更关注案件背后的动机与社会关系，推理过程相对次要。《雾港档案》偏本格，《暗河回响》偏社会派。</div>
+      </details>
+      <details>
+        <summary>第一次看庭审题材，从哪部开始比较好？</summary>
+        <div class="answer">可以从《玻璃城证词》入手，它的庭辩节奏清楚，每集围绕一份证据展开，不需要法律背景也能跟上。看完后再看纪实改编类的庭审条目，理解成本会更低。</div>
+      </details>
+      <details>
+        <summary>限定剧和常规剧集在观看体验上有什么差别？</summary>
+        <div class="answer">限定剧集数少，世界观和主线必须在有限篇幅内收束，适合集中观看；常规剧集支线和人物更多，中段节奏可能放缓，但人物关系更完整。6—8 集的短剧信息密度通常更高。</div>
+      </details>
+      <details>
+        <summary>科幻剧的设定太复杂看不进去怎么办？</summary>
+        <div class="answer">可以先从规则简单的条目入手，比如《零点频率》只围绕时间循环这一条核心规则展开。硬科幻如《深海异常信号档案》技术对白较多，建议配合条目简介先了解基本设定再看正片。</div>
+      </details>
+      <details>
+        <summary>都市喜剧和黑色幽默怎么选？</summary>
+        <div class="answer">想放松看《合租守则》，单集 25 分钟，冲突轻松；想看带讽刺意味的短剧选《审批科日常》，每集一个荒诞申请案例，笑点偏冷，共 10 集。</div>
+      </details>
+    </section>
+
+    <!-- 8 用户评论 -->
+    <section class="section" id="comments">
+      <div class="section-head"><h2>观众讨论</h2><span class="sub">关于具体条目与类型的真实感评论</span></div>
+      <div class="comment-list">
+        <div class="comment"><div class="who">林间有雾 <time>今天 10:12</time></div>《暗河回响》第 6 集两条线交汇处理得不错，记者那条线终于和刑警线对上了，之前埋的出租车细节也回收了。</div>
+        <div class="comment"><div class="who">半页笔记 <time>今天 09:40</time></div>《雾港档案》建议从第 5 集开始看，前面四集都在铺人物关系，第一个正式案件从第 5 集才进入。</div>
+        <div class="comment"><div class="who">深夜电台 <time>昨天 22:05</time></div>《零点频率》的循环规则定得很清楚，第二集就把边界条件说明白了，后面没有乱改设定，这点加分。</div>
+        <div class="comment"><div class="who">北纬旅人 <time>昨天 20:30</time></div>《北纬四十七度》节奏是真的慢，但我喜欢这种生活流，适合睡前看两集。不喜欢慢节奏的可能两集就弃了。</div>
+        <div class="comment"><div class="who">合租第七年 <time>11 月 7 日</time></div>《合租守则》第 14 集新租客那条线有点刻意，不过整体还是下饭，单集 25 分钟刚刚好。</div>
+        <div class="comment"><div class="who">证据链爱好者 <time>11 月 7 日</time></div>《玻璃城证词》第 9 集物证来源被质疑那段，交叉询问写得很扎实，比一般的庭审剧讲究。</div>
+        <div class="comment"><div class="who">审批大厅常客 <time>11 月 6 日</time></div>《审批科日常》最后一集“年度总结审批”太真实了，笑完有点心酸，10 集刚好不拖。</div>
+        <div class="comment"><div class="who">深海观测员 <time>11 月 6 日</time></div>《深海异常信号档案》第 5 集出现第二处坐标，希望最后两集能把信号源解释清楚，别烂尾。</div>
+        <div class="comment"><div class="who">本格推理迷 <time>11 月 5 日</time></div>《雾港档案》的单元案件线索给得挺公平，我看的时候能自己推出来，这点比很多故弄玄虚的强。</div>
+        <div class="comment"><div class="who">短剧观察员 <time>11 月 5 日</time></div>秋季悬疑专题 12 部里 5 部是短剧，这个比例挺合理，短剧现在质量确实上来了。</div>
+        <div class="comment"><div class="who">慢热型观众 <time>11 月 4 日</time></div>《暗河回响》前两集信息量有点大，我重看了一遍才理清时间线，建议第一遍别快进。</div>
+        <div class="comment"><div class="who">黑色幽默爱好者 <time>11 月 4 日</time></div>《审批科日常》的笑点偏冷，不是那种爆笑型，喜欢讽刺的会觉得很对味。</div>
+        <div class="comment"><div class="who">边境小镇客 <time>11 月 3 日</time></div>《北纬四十七度》的取景很舒服，对白少但信息都在画面里，适合不赶时间的时候看。</div>
+        <div class="comment"><div class="who">法庭旁听生 <time>11 月 3 日</time></div>《玻璃城证词》目前最大的悬念是那份旧案卷宗到底被谁动过，希望结局别用巧合解释。</div>
+        <div class="comment"><div class="who">循环设定控 <time>11 月 2 日</time></div>《零点频率》最后两集收束得干净，没有为了续集硬留尾巴，限定剧就该这样。</div>
+        <div class="comment"><div class="who">下饭剧收集者 <time>11 月 1 日</time></div>《合租守则》和《审批科日常》可以交替看，一个轻松一个带刺，搭配起来不腻。</div>
+      </div>
+    </section>
+
+    <!-- 9 相关资讯 -->
+    <section class="section" id="news">
+      <div class="section-head"><h2>剧集相关资讯</h2><span class="sub">近期条目上线与类型动向</span></div>
+      <div class="news-list">
+        <article class="news-item">
+          <img src="https://picsum.photos/seed/qiuji-xuanyi01/600/400" alt="秋季悬疑专题定档海报" width="600" height="400" loading="lazy">
+          <div>
+            <h3>秋季悬疑专题 12 部定档，短剧占 5 部</h3>
+            <time>2026-11-07</time>
+            <p>本季悬疑专题公布定档名单，其中《暗河回响》《零点频率》等 5 部为 6—8 集短剧形态，周更与全集上线两种模式并行。</p>
+          </div>
+        </article>
+        <article class="news-item">
+          <img src="https://picsum.photos/seed/tingshen-zhuanti02/600/400" alt="庭审题材专题新增条目" width="600" height="400" loading="lazy">
+          <div>
+            <h3>庭审题材专题新增 3 部犯罪条目</h3>
+            <time>2026-11-01</time>
+            <p>新增条目包括 1 部纪实改编和 2 部虚构庭审剧，均以证据链攻防为主线，其中《玻璃城证词》更新至第 9 集。</p>
+          </div>
+        </article>
+        <article class="news-item">
+          <img src="https://picsum.photos/seed/lingdian-shoushu03/600/400" alt="零点频率时间循环设定图" width="600" height="400" loading="lazy">
+          <div>
+            <h3>《零点频率》公开时间循环设定图</h3>
+            <time>2026-11-06</time>
+            <p>8 集限定剧上线完毕，官方公开循环规则设定图，明确“同一晚循环”的边界条件与打破条件。</p>
+          </div>
+        </article>
+        <article class="news-item">
+          <img src="https://picsum.photos/seed/wugang-suoyin04/600/400" alt="雾港档案单元案件索引更新" width="600" height="400" loading="lazy">
+          <div>
+            <h3>《雾港档案》更新单元案件索引</h3>
+            <time>2026-11-05</time>
+            <p>第 9—12 集案件简介补全，包含案件类型、关键线索出现位置，方便按单元跳看的观众选择入口。</p>
+          </div>
+        </article>
+        <article class="news-item">
+          <img src="https://picsum.photos/seed/beiw47-daoyan05/600/400" alt="北纬四十七度导演访谈" width="600" height="400" loading="lazy">
+          <div>
+            <h3>《北纬四十七度》导演谈边境群像选角</h3>
+            <time>2026-11-04</time>
+            <p>导演访谈上线，谈及三个家庭的选角逻辑与边境取景地选择，解释为何采用低对白、慢节奏的叙事。</p>
+          </div>
+        </article>
+        <article class="news-item">
+          <img src="https://picsum.photos/seed/shenpi-wanjie06/600/400" alt="审批科日常完结集截图" width="600" height="400" loading="lazy">
+          <div>
+            <h3>《审批科日常》第 10 集完结</h3>
+            <time>2026-11-03</time>
+            <p>黑色幽默短剧完结，最后一案为“年度总结审批”，延续每集一个荒诞申请案例的单元结构，共 10 集。</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- 10 相关推荐 -->
+    <section class="section" id="related">
+      <div class="section-head"><h2>延伸观看方向</h2><span class="sub">与当前片单相关的具体内容方向</span></div>
+      <div class="related-tags">
+        <a href="/#featured">密室本格推理</a>
+        <a href="/#featured">真实案件改编庭审</a>
+        <a href="/#featured">时间循环限定剧</a>
+        <a href="/#featured">深海封闭空间科幻</a>
+        <a href="/#featured">边境生活流群像</a>
+        <a href="/#featured">体制内黑色幽默</a>
+        <a href="/#ranking">评分 8.5 以上短剧</a>
+        <a href="/#updates">本周刚完结条目</a>
+      </div>
+    </section>
+
+    <!-- 11 补充板块：口碑榜单 -->
+    <section class="section" id="ranking">
+      <div class="section-head"><h2>观众口碑榜单</h2><span class="sub">按片单内条目整理，2026 年 11 月 8 日更新</span></div>
+      <div class="ranking">
+        <div class="rank-row"><span class="rank-num">1</span><span class="rank-title">零点频率</span><span class="rank-type">科幻 / 时间循环</span><span class="rank-score">8.9</span></div>
+        <div class="rank-row"><span class="rank-num">2</span><span class="rank-title">暗河回响</span><span class="rank-type">悬疑 / 追凶</span><span class="rank-score">8.7</span></div>
+        <div class="rank-row"><span class="rank-num">3</span><span class="rank-title">深海异常信号档案</span><span class="rank-type">科幻 / 深海悬疑</span><span class="rank-score">8.6</span></div>
+        <div class="rank-row"><span class="rank-num">4</span><span class="rank-title">玻璃城证词</span><span class="rank-type">犯罪 / 庭审</span><span class="rank-score">8.5</span></div>
+        <div class="rank-row"><span class="rank-num">5</span><span class="rank-title">雾港档案</span><span class="rank-type">悬疑 / 单元探案</span><span class="rank-score">8.3</span></div>
+        <div class="rank-row"><span class="rank-num">6</span><span class="rank-title">审批科日常</span><span class="rank-type">喜剧 / 黑色幽默</span><span class="rank-score">8.2</span></div>
+        <div class="rank-row"><span class="rank-num">7</span><span class="rank-title">北纬四十七度</span><span class="rank-type">剧情 / 边境生活</span><span class="rank-score">8.1</span></div>
+        <div class="rank-row"><span class="rank-num">8</span><span class="rank-title">合租守则</span><span class="rank-type">喜剧 / 都市群像</span><span class="rank-score">7.9</span></div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- 右辅助栏 -->
+  <aside aria-label="辅助信息">
+    <div class="aside-box">
+      <h3>热看条目</h3>
+      <ul class="hot-list">
+        <li><span class="dot">01</span><a href="/#featured">暗河回响</a></li>
+        <li><span class="dot">02</span><a href="/#featured">零点频率</a></li>
+        <li><span class="dot">03</span><a href="/#featured">玻璃城证词</a></li>
+        <li><span class="dot">04</span><a href="/#featured">雾港档案</a></li>
+        <li><span class="dot">05</span><a href="/#featured">深海异常信号档案</a></li>
+        <li><span class="dot">06</span><a href="/#featured">审批科日常</a></li>
+      </ul>
+    </div>
+    <div class="aside-box">
+      <h3>更新节奏</h3>
+      <p class="aside-note">《暗河回响》每周二、五更新两集；《玻璃城证词》每周四更新一集；《合租守则》每周一更新两集。短剧条目多为全集一次性上线。</p>
+    </div>
+    <div class="aside-box">
+      <h3>单集时长参考</h3>
+      <p class="aside-note">25 分钟档：《合租守则》《审批科日常》。45 分钟档：《暗河回响》《玻璃城证词》《雾港档案》。50 分钟以上：《零点频率》《深海异常信号档案》。</p>
+    </div>
+  </aside>
+
+</div>
+
+<!-- 页尾 -->
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div>
+      <div class="footer-brand">
+        <svg viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="14" fill="#f4c95d"/><path d="M18 44V20h6l16 18V20h6v24h-6L24 26v18z" fill="#0f2f4f"/></svg>
+        奈菲影视
+      </div>
+      <p style="margin:0 0 8px;color:#bfb8a7">聚合悬疑、科幻、犯罪、喜剧等类型剧集片单，追踪更新动态，提供类型差异解析与观看顺序建议。</p>
+    </div>
+    <div class="footer-col">
+      <h4>片单入口</h4>
+      <a href="/#featured">精选剧集片单</a>
+      <a href="/#updates">最新更新动态</a>
+      <a href="/#categories">按类型找剧</a>
+      <a href="/#ranking">观众口碑榜单</a>
+    </div>
+    <div class="footer-col">
+      <h4>内容解析</h4>
+      <a href="/#analysis">类型差异解析</a>
+      <a href="/#guide">观看顺序建议</a>
+      <a href="/#faq">常见问题</a>
+      <a href="/#news">剧集相关资讯</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>部分内容为示例数据，仅用于展示页面结构</span>
+    <span>© 2026 奈菲影视 · 内容聚合示例页</span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var input=document.getElementById('searchInput');
+  var btn=document.getElementById('searchBtn');
+  var grid=document.getElementById('featuredGrid');
+  var noResult=document.getElementById('noResults');
+  var cards=grid?Array.prototype.slice.call(grid.querySelectorAll('.card')):[];
+
+  function filter(){
+    var q=(input.value||'').trim().toLowerCase();
+    if(!q){
+      cards.forEach(function(c){c.style.display='';});
+      noResult.style.display='none';
+      return;
+    }
+    var shown=0;
+    cards.forEach(function(c){
+      var text=c.textContent.toLowerCase();
+      if(text.indexOf(q)>-1){c.style.display='';shown++;}
+      else{c.style.display='none';}
+    });
+    noResult.style.display=shown===0?'block':'none';
+  }
+  if(btn){btn.addEventListener('click',filter);}
+  if(input){input.addEventListener('input',filter);}
+})();
+</script>
+</body>
+      </html>
