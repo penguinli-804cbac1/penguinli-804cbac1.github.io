@@ -1,0 +1,1147 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>今日海角大陆回家方式 - 路线与通行指南</title>
+  <meta name="description" content="今日海角大陆回家方式提供多种通行路线、实时动态与实用技巧，涵盖潮汐通道、跨海轮渡、隐藏小径等具体条目，适合需要规划归途的玩家与旅行者参考。">
+  <meta name="keywords" content="海角大陆路线,潮汐通道通行,跨海轮渡时刻,隐藏小径攻略,归途安全指引">
+  <style>
+    /* ---------- 全局变量与重置 ---------- */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    :root {
+      --bg: #f8f6f2;
+      --panel: #ffffff;
+      --panel-soft: #f2efe9;
+      --ink: #1c2a32;
+      --ink-mid: #3e4e58;
+      --ink-soft: #6b7b85;
+      --edge: #d9d2c5;
+      --primary: #2a6f6f;
+      --primary-soft: #d4e8e6;
+      --accent: #c17b3a;
+      --accent-soft: #f5e6d8;
+      --radius-lg: 20px;
+      --radius-md: 12px;
+      --radius-sm: 8px;
+      --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.04);
+      --shadow-md: 0 6px 18px rgba(0, 0, 0, 0.06);
+      --font-main: 'Inter', 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', system-ui, sans-serif;
+      --max-width: 1280px;
+      --header-height: 68px;
+      --announce-height: 40px;
+    }
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: calc(var(--announce-height) + var(--header-height) + 12px);
+    }
+    body {
+      font-family: var(--font-main);
+      background: var(--bg);
+      color: var(--ink);
+      line-height: 1.6;
+      font-size: 16px;
+      padding-top: calc(var(--announce-height) + var(--header-height));
+    }
+    a {
+      color: var(--primary);
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    img {
+      display: block;
+      max-width: 100%;
+      height: auto;
+      object-fit: cover;
+    }
+    button, input {
+      font-family: inherit;
+      font-size: inherit;
+    }
+
+    /* ---------- 吸顶公告条 ---------- */
+    .announce-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: var(--announce-height);
+      background: var(--accent-soft);
+      color: var(--ink);
+      border-bottom: 1px solid var(--edge);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.9rem;
+      font-weight: 500;
+      padding: 0 16px;
+      text-align: center;
+      gap: 8px;
+    }
+    .announce-bar span {
+      background: var(--accent);
+      color: #fff;
+      padding: 2px 10px;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.3px;
+      white-space: nowrap;
+    }
+
+    /* ---------- 吸顶页头 ---------- */
+    .site-header {
+      position: fixed;
+      top: var(--announce-height);
+      left: 0;
+      width: 100%;
+      height: var(--header-height);
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--edge);
+      z-index: 999;
+      display: flex;
+      align-items: center;
+      padding: 0 24px;
+    }
+    .header-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-shrink: 0;
+    }
+    .brand-svg {
+      width: 36px;
+      height: 36px;
+      background: var(--primary);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .brand-text {
+      font-weight: 700;
+      font-size: 1.2rem;
+      color: var(--ink);
+      letter-spacing: -0.3px;
+    }
+    .nav-main {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+    .nav-main a {
+      color: var(--ink-mid);
+      font-size: 0.9rem;
+      font-weight: 500;
+      padding: 6px 12px;
+      border-radius: 30px;
+      transition: background 0.2s;
+      white-space: nowrap;
+    }
+    .nav-main a:hover {
+      background: var(--primary-soft);
+      color: var(--primary);
+      text-decoration: none;
+    }
+
+    /* ---------- 布局容器 ---------- */
+    .page-wrap {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 24px 48px;
+    }
+
+    /* ---------- 三栏门户网格 ---------- */
+    .portal-grid {
+      display: grid;
+      grid-template-columns: 200px minmax(0, 1fr) 280px;
+      gap: 28px;
+      align-items: start;
+    }
+
+    /* ---------- 首屏 ---------- */
+    .hero {
+      margin-bottom: 36px;
+      padding: 40px 0 24px;
+      position: relative;
+    }
+    .hero-inner {
+      display: flex;
+      align-items: center;
+      gap: 40px;
+      background: linear-gradient(135deg, #eef5f3 0%, #faf8f4 100%);
+      border-radius: var(--radius-lg);
+      padding: 40px 48px;
+      border: 1px solid var(--edge);
+      box-shadow: var(--shadow-sm);
+    }
+    .hero-text {
+      flex: 1 1 55%;
+    }
+    .hero-text h1 {
+      font-size: 2.6rem;
+      font-weight: 800;
+      line-height: 1.2;
+      color: var(--ink);
+      margin-bottom: 16px;
+      letter-spacing: -0.5px;
+    }
+    .hero-desc {
+      font-size: 1.05rem;
+      color: var(--ink-mid);
+      margin-bottom: 24px;
+      max-width: 540px;
+    }
+    .hero-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .btn {
+      display: inline-block;
+      padding: 10px 24px;
+      border-radius: 40px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: all 0.15s;
+      cursor: default;
+      text-align: center;
+      border: none;
+    }
+    .btn-primary {
+      background: var(--primary);
+      color: #fff;
+      box-shadow: 0 4px 12px rgba(42, 111, 111, 0.25);
+    }
+    .btn-outline {
+      background: transparent;
+      border: 1.5px solid var(--primary);
+      color: var(--primary);
+    }
+    .hero-visual {
+      flex: 0 0 220px;
+      height: 180px;
+      position: relative;
+      background: var(--primary-soft);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+    }
+    .hero-visual svg {
+      width: 100%;
+      height: 100%;
+    }
+
+    /* ---------- 通用面板 ---------- */
+    .panel {
+      background: var(--panel);
+      border-radius: var(--radius-md);
+      border: 1px solid var(--edge);
+      padding: 22px 20px;
+      box-shadow: var(--shadow-sm);
+    }
+    .panel + .panel {
+      margin-top: 24px;
+    }
+    .section-title {
+      font-size: 1.35rem;
+      font-weight: 700;
+      margin-bottom: 18px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      letter-spacing: -0.2px;
+    }
+    .section-title::before {
+      content: '';
+      display: inline-block;
+      width: 5px;
+      height: 22px;
+      background: var(--primary);
+      border-radius: 4px;
+    }
+    .section-sub {
+      font-size: 0.9rem;
+      color: var(--ink-soft);
+      margin-top: -8px;
+      margin-bottom: 18px;
+    }
+
+    /* ---------- 左频道索引 ---------- */
+    .channel-nav {
+      position: sticky;
+      top: calc(var(--announce-height) + var(--header-height) + 20px);
+    }
+    .channel-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .channel-list a {
+      display: block;
+      padding: 8px 14px;
+      border-radius: 30px;
+      color: var(--ink-mid);
+      font-size: 0.92rem;
+      font-weight: 500;
+      transition: all 0.15s;
+    }
+    .channel-list a:hover {
+      background: var(--primary-soft);
+      color: var(--primary);
+      text-decoration: none;
+    }
+
+    /* ---------- 卡片网格 ---------- */
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+      gap: 20px;
+    }
+    .card {
+      background: var(--panel);
+      border-radius: var(--radius-md);
+      border: 1px solid var(--edge);
+      padding: 16px;
+      transition: box-shadow 0.2s;
+    }
+    .card:hover {
+      box-shadow: var(--shadow-md);
+    }
+    .card-img {
+      width: 100%;
+      aspect-ratio: 4/3;
+      border-radius: var(--radius-sm);
+      margin-bottom: 12px;
+      background: var(--panel-soft);
+      object-fit: cover;
+    }
+    .card-title {
+      font-weight: 700;
+      font-size: 1rem;
+      margin-bottom: 6px;
+      color: var(--ink);
+    }
+    .card-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 8px;
+    }
+    .tag {
+      background: var(--panel-soft);
+      color: var(--ink-mid);
+      font-size: 0.7rem;
+      padding: 2px 8px;
+      border-radius: 20px;
+      font-weight: 500;
+    }
+    .card-desc {
+      font-size: 0.85rem;
+      color: var(--ink-mid);
+      margin-bottom: 10px;
+      line-height: 1.5;
+    }
+    .card-meta {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.75rem;
+      color: var(--ink-soft);
+      border-top: 1px solid var(--edge);
+      padding-top: 8px;
+    }
+
+    /* ---------- 紧凑列表 ---------- */
+    .list-compact {
+      list-style: none;
+    }
+    .list-compact li {
+      padding: 12px 0;
+      border-bottom: 1px solid var(--edge);
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 16px;
+    }
+    .list-compact li:last-child {
+      border-bottom: none;
+    }
+    .list-compact .item-name {
+      font-weight: 600;
+      color: var(--ink);
+    }
+    .list-compact .item-brief {
+      font-size: 0.85rem;
+      color: var(--ink-soft);
+    }
+    .list-compact .item-time {
+      font-size: 0.75rem;
+      color: var(--ink-soft);
+      white-space: nowrap;
+    }
+
+    /* ---------- 分类入口标签 ---------- */
+    .cat-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .cat-tag {
+      background: var(--panel-soft);
+      padding: 8px 18px;
+      border-radius: 30px;
+      font-size: 0.9rem;
+      color: var(--ink-mid);
+      font-weight: 500;
+      transition: background 0.15s;
+    }
+    .cat-tag:hover {
+      background: var(--primary-soft);
+      color: var(--primary);
+      text-decoration: none;
+    }
+
+    /* ---------- 深度解析 ---------- */
+    .deep-dive h3 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      margin-top: 24px;
+      margin-bottom: 10px;
+      color: var(--ink);
+    }
+    .deep-dive p {
+      margin-bottom: 14px;
+      color: var(--ink-mid);
+      font-size: 0.95rem;
+    }
+    .deep-dive ul {
+      margin: 12px 0 18px 20px;
+      color: var(--ink-mid);
+      font-size: 0.95rem;
+    }
+    .deep-dive li {
+      margin-bottom: 6px;
+    }
+
+    /* ---------- FAQ ---------- */
+    .faq-list details {
+      border-bottom: 1px solid var(--edge);
+      padding: 14px 0;
+    }
+    .faq-list details:last-child {
+      border-bottom: none;
+    }
+    .faq-list summary {
+      font-weight: 600;
+      cursor: pointer;
+      color: var(--ink);
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .faq-list summary::-webkit-details-marker {
+      display: none;
+    }
+    .faq-list summary::after {
+      content: '+';
+      font-size: 1.4rem;
+      color: var(--primary);
+      font-weight: 400;
+    }
+    .faq-list details[open] summary::after {
+      content: '−';
+    }
+    .faq-list .faq-answer {
+      padding-top: 10px;
+      font-size: 0.9rem;
+      color: var(--ink-mid);
+    }
+
+    /* ---------- 评论 ---------- */
+    .comment-list {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .comment-item {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+    }
+    .comment-avatar {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: var(--primary-soft);
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      color: var(--primary);
+      font-size: 0.8rem;
+    }
+    .comment-body {
+      flex: 1;
+    }
+    .comment-name {
+      font-weight: 600;
+      font-size: 0.85rem;
+      color: var(--ink);
+    }
+    .comment-text {
+      font-size: 0.88rem;
+      color: var(--ink-mid);
+      margin-top: 2px;
+    }
+    .comment-time {
+      font-size: 0.7rem;
+      color: var(--ink-soft);
+      margin-top: 4px;
+    }
+
+    /* ---------- 资讯列表 ---------- */
+    .news-list {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .news-item {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+    }
+    .news-thumb {
+      width: 90px;
+      height: 60px;
+      border-radius: var(--radius-sm);
+      object-fit: cover;
+      flex-shrink: 0;
+      background: var(--panel-soft);
+    }
+    .news-content {
+      flex: 1;
+    }
+    .news-title {
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: var(--ink);
+    }
+    .news-date {
+      font-size: 0.7rem;
+      color: var(--ink-soft);
+      margin: 4px 0;
+    }
+    .news-summary {
+      font-size: 0.82rem;
+      color: var(--ink-soft);
+      line-height: 1.5;
+    }
+
+    /* ---------- 相关推荐标签 ---------- */
+    .rec-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .rec-tag {
+      background: var(--panel-soft);
+      padding: 4px 14px;
+      border-radius: 30px;
+      font-size: 0.82rem;
+      color: var(--ink-mid);
+    }
+
+    /* ---------- 排行榜 ---------- */
+    .rank-list {
+      counter-reset: rank;
+      list-style: none;
+    }
+    .rank-list li {
+      counter-increment: rank;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--edge);
+      display: flex;
+      gap: 12px;
+      align-items: center;
+    }
+    .rank-list li:last-child {
+      border-bottom: none;
+    }
+    .rank-list li::before {
+      content: counter(rank);
+      display: inline-block;
+      width: 24px;
+      height: 24px;
+      background: var(--primary-soft);
+      color: var(--primary);
+      font-weight: 700;
+      font-size: 0.75rem;
+      border-radius: 50%;
+      text-align: center;
+      line-height: 24px;
+      flex-shrink: 0;
+    }
+    .rank-name {
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+    .rank-score {
+      margin-left: auto;
+      font-size: 0.8rem;
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    /* ---------- 侧栏 ---------- */
+    .sidebar {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+    .sidebar .panel {
+      padding: 18px 16px;
+    }
+    .sidebar-title {
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .sidebar-title::before {
+      content: '';
+      width: 4px;
+      height: 16px;
+      background: var(--accent);
+      border-radius: 4px;
+    }
+
+    /* ---------- 页尾 ---------- */
+    .site-footer {
+      background: var(--panel);
+      border-top: 1px solid var(--edge);
+      padding: 40px 24px 24px;
+      margin-top: 24px;
+    }
+    .footer-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 32px;
+    }
+    .footer-brand .brand-text {
+      margin-bottom: 8px;
+      display: block;
+    }
+    .footer-brand p {
+      font-size: 0.85rem;
+      color: var(--ink-soft);
+      max-width: 280px;
+      line-height: 1.5;
+    }
+    .footer-col h4 {
+      font-size: 0.9rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+      color: var(--ink);
+    }
+    .footer-col a {
+      display: block;
+      font-size: 0.82rem;
+      color: var(--ink-soft);
+      margin-bottom: 6px;
+    }
+    .footer-col a:hover {
+      color: var(--primary);
+    }
+    .footer-bottom {
+      max-width: var(--max-width);
+      margin: 32px auto 0;
+      padding-top: 20px;
+      border-top: 1px solid var(--edge);
+      font-size: 0.75rem;
+      color: var(--ink-soft);
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    /* ---------- 响应式 ---------- */
+    @media (max-width: 1024px) {
+      .portal-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+      .portal-grid > .channel-nav {
+        grid-column: 1 / -1;
+        position: static;
+        display: flex;
+        overflow-x: auto;
+        gap: 8px;
+        padding-bottom: 8px;
+      }
+      .channel-list {
+        flex-direction: row;
+        flex-wrap: nowrap;
+      }
+      .channel-list a {
+        white-space: nowrap;
+      }
+      .hero-inner {
+        flex-direction: column;
+        padding: 32px;
+      }
+      .hero-visual {
+        flex: 0 0 auto;
+        width: 100%;
+        height: 140px;
+      }
+      .footer-inner {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+    @media (max-width: 740px) {
+      .portal-grid {
+        grid-template-columns: 1fr;
+      }
+      .hero-text h1 {
+        font-size: 2rem;
+      }
+      .hero-inner {
+        padding: 24px;
+      }
+      .site-header {
+        padding: 0 16px;
+      }
+      .nav-main {
+        gap: 4px;
+      }
+      .nav-main a {
+        padding: 4px 8px;
+        font-size: 0.8rem;
+      }
+      .brand-text {
+        font-size: 1rem;
+      }
+      .footer-inner {
+        grid-template-columns: 1fr;
+      }
+      .page-wrap {
+        padding: 0 16px 32px;
+      }
+      .announce-bar {
+        font-size: 0.75rem;
+        padding: 0 8px;
+      }
+      .card-grid {
+        grid-template-columns: 1fr;
+      }
+      .news-item {
+        flex-direction: column;
+      }
+      .news-thumb {
+        width: 100%;
+        height: 120px;
+      }
+    }
+
+    /* ---------- 工具类 ---------- */
+    .mt-24 { margin-top: 24px; }
+    .mb-16 { margin-bottom: 16px; }
+    .text-soft { color: var(--ink-soft); }
+    .text-small { font-size: 0.85rem; }
+    .flex-between { display: flex; justify-content: space-between; align-items: center; }
+    .badge-hot { background: var(--accent-soft); color: var(--accent); font-size: 0.7rem; padding: 1px 8px; border-radius: 20px; font-weight: 600; }
+  </style>
+<script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+  <!-- 吸顶公告条 -->
+  <div class="announce-bar">
+    <span>新</span> 今日新增 3 条潮汐通道通行时段 · 11 月 8 日轮渡班次加密至每小时一班
+  </div>
+
+  <!-- 吸顶页头 -->
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="brand">
+        <div class="brand-svg" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/>
+          </svg>
+        </div>
+        <span class="brand-text">今日海角大陆回家方式</span>
+      </div>
+      <nav class="nav-main" aria-label="主题导航">
+        <a href="/#tide-pass">潮汐通道</a>
+        <a href="/#ferry-schedule">跨海轮渡</a>
+        <a href="/#hidden-path">隐藏小径</a>
+        <a href="/#gear-guide">装备建议</a>
+        <a href="/#faq">常见问答</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="page-wrap">
+      <!-- 首屏 -->
+      <section class="hero" id="top">
+        <div class="hero-inner">
+          <div class="hero-text">
+            <h1>今日海角大陆回家方式</h1>
+            <p class="hero-desc">汇总海角大陆的潮汐通道、跨海轮渡、隐藏小径与安全指引，提供从东岸到西港的多种归途方案，以及实时通行时段与装备建议。</p>
+            <div class="hero-actions">
+              <span class="btn btn-primary">查看今日路线</span>
+              <span class="btn btn-outline">轮渡时刻表</span>
+            </div>
+          </div>
+          <div class="hero-visual" aria-hidden="true">
+            <svg viewBox="0 0 220 180" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect width="220" height="180" fill="#d4e8e6"/>
+              <path d="M0 140 Q40 120 80 135 T160 130 T220 145 L220 180 L0 180 Z" fill="#2a6f6f" opacity="0.15"/>
+              <path d="M0 150 Q50 130 100 145 T220 140 L220 180 L0 180 Z" fill="#2a6f6f" opacity="0.25"/>
+              <circle cx="170" cy="40" r="24" fill="#f5e6d8"/>
+              <path d="M50 90 L70 70 L90 90" stroke="#c17b3a" stroke-width="3" fill="none"/>
+              <path d="M80 90 L100 60 L120 90" stroke="#c17b3a" stroke-width="3" fill="none"/>
+              <rect x="120" y="100" width="40" height="28" rx="4" fill="#fff" opacity="0.8"/>
+              <text x="124" y="119" font-size="8" fill="#1c2a32" font-weight="bold">归途</text>
+            </svg>
+          </div>
+        </div>
+      </section>
+
+      <!-- 三栏内容 -->
+      <div class="portal-grid">
+        <!-- 左频道索引 -->
+        <nav class="channel-nav panel" aria-label="频道索引">
+          <div class="sidebar-title">频道索引</div>
+          <ul class="channel-list">
+            <li><a href="/#tide-pass">潮汐通道通行</a></li>
+            <li><a href="/#ferry-schedule">跨海轮渡时刻</a></li>
+            <li><a href="/#hidden-path">隐藏小径路线</a></li>
+            <li><a href="/#safety-kit">归途安全装备</a></li>
+            <li><a href="/#weather-window">天气窗口选择</a></li>
+            <li><a href="/#group-route">结伴通行规则</a></li>
+            <li><a href="/#night-route">夜间归途方案</a></li>
+            <li><a href="/#gear-guide">轻量装备清单</a></li>
+            <li><a href="/#faq">常见疑问</a></li>
+          </ul>
+        </nav>
+
+        <!-- 中主内容 -->
+        <div class="main-content">
+          <!-- 板块1：主题领域概览 -->
+          <section class="panel" id="overview">
+            <h2 class="section-title">海角大陆归途方式概览</h2>
+            <p>海角大陆的回家方式主要围绕三条主线展开：潮汐通道、跨海轮渡和隐藏小径。潮汐通道利用退潮后露出的海底礁石路，从东岸的月牙湾直通西港码头，单程约 40 分钟，是步行和骑行者最常用的路线。跨海轮渡则不受潮汐限制，从晨间 6:30 到夜间 21:00 每 1—2 小时一班，适合携带大件行李或赶时间的旅客。隐藏小径是近年来被徒步爱好者整理出的山脊绕行路线，从灯塔遗址经风蚀峡谷到西港后山，全程约 2.5 小时，风景好但需要一定体力。</p>
+            <p>当前值得关注的具体内容：11 月 8 日当天潮汐通道的通行窗口为 07:20—10:40 和 16:50—19:10；轮渡公司加开了 17:30 和 19:30 两个晚班；隐藏小径的北段因碎石滑落暂未开放，南段可正常通行。需要留意的是，月牙湾入口的实时水位牌已更新，建议出发前查看当日潮汐表。</p>
+          </section>
+
+          <!-- 板块2：精选内容推荐 -->
+          <section class="panel" id="featured">
+            <h2 class="section-title">今日精选归途路线</h2>
+            <div class="card-grid">
+              <article class="card">
+                <img class="card-img" src="https://picsum.photos/seed/tide-pass01/400/300" alt="月牙湾潮汐通道礁石路" width="400" height="300" loading="lazy">
+                <h3 class="card-title">月牙湾潮汐通道</h3>
+                <div class="card-tags"><span class="tag">步行</span><span class="tag">退潮通行</span><span class="tag">40分钟</span></div>
+                <p class="card-desc">退潮后露出的天然礁石路，从月牙湾直抵西港码头，沿途可看到海蚀柱群。今日通行窗口 07:20—10:40。</p>
+                <div class="card-meta"><span>热度 9.6</span><span>更新于今日 06:50</span></div>
+              </article>
+              <article class="card">
+                <img class="card-img" src="https://picsum.photos/seed/ferry-east02/400/300" alt="跨海轮渡东岸码头" width="400" height="300" loading="lazy">
+                <h3 class="card-title">东岸—西港跨海轮渡</h3>
+                <div class="card-tags"><span class="tag">轮渡</span><span class="tag">每小时一班</span><span class="tag">可载行李</span></div>
+                <p class="card-desc">从东岸码头出发，航程 25 分钟，今日新增 17:30 和 19:30 两个晚班，适合携带大件行李或夜间返程。</p>
+                <div class="card-meta"><span>热度 9.2</span><span>更新于今日 08:00</span></div>
+              </article>
+              <article class="card">
+                <img class="card-img" src="https://picsum.photos/seed/hidden-trail03/400/300" alt="风蚀峡谷隐藏小径" width="400" height="300" loading="lazy">
+                <h3 class="card-title">风蚀峡谷隐藏小径</h3>
+                <div class="card-tags"><span class="tag">徒步</span><span class="tag">山脊线</span><span class="tag">2.5小时</span></div>
+                <p class="card-desc">从灯塔遗址经风蚀峡谷到西港后山的徒步路线，南段正常开放，北段碎石滑落暂封。适合体力较好的徒步者。</p>
+                <div class="card-meta"><span>热度 8.8</span><span>更新于昨日 18:20</span></div>
+              </article>
+              <article class="card">
+                <img class="card-img" src="https://picsum.photos/seed/night-route04/400/300" alt="夜间归途灯塔照明路线" width="400" height="300" loading="lazy">
+                <h3 class="card-title">夜间灯塔照明路线</h3>
+                <div class="card-tags"><span class="tag">夜间</span><span class="tag">照明良好</span><span class="tag">1.2小时</span></div>
+                <p class="card-desc">沿灯塔步道至西港南侧入口，全程有路灯覆盖，适合晚归。今日灯塔照明延长至 22:00。</p>
+                <div class="card-meta"><span>热度 8.5</span><span>更新于今日 07:30</span></div>
+              </article>
+              <article class="card">
+                <img class="card-img" src="https://picsum.photos/seed/group-route05/400/300" alt="结伴通行集合点东岸驿站" width="400" height="300" loading="lazy">
+                <h3 class="card-title">东岸驿站结伴通行</h3>
+                <div class="card-tags"><span class="tag">结伴</span><span class="tag">每日两批</span><span class="tag">免费</span></div>
+                <p class="card-desc">东岸驿站每天 09:00 和 15:00 组织结伴走潮汐通道，有向导带队，适合第一次走这条路线的人。</p>
+                <div class="card-meta"><span>热度 8.3</span><span>更新于今日 07:00</span></div>
+              </article>
+              <article class="card">
+                <img class="card-img" src="https://picsum.photos/seed/weather-window06/400/300" alt="西港天气窗口观察站" width="400" height="300" loading="lazy">
+                <h3 class="card-title">西港天气窗口观察</h3>
+                <div class="card-tags"><span class="tag">天气</span><span class="tag">风力监测</span><span class="tag">实时</span></div>
+                <p class="card-desc">西港入口的实时风力与能见度面板，今日午后风力 3 级，适合轮渡与徒步，傍晚有短时阵风。</p>
+                <div class="card-meta"><span>热度 8.1</span><span>更新于今日 09:10</span></div>
+              </article>
+            </div>
+          </section>
+
+          <!-- 板块3：最新动态 -->
+          <section class="panel" id="latest-updates">
+            <h2 class="section-title">最新通行动态</h2>
+            <ul class="list-compact">
+              <li><span class="item-name">潮汐通道 07:20 开放</span><span class="item-brief">月牙湾入口水位降至 0.4 米，今日提前 10 分钟放行</span><span class="item-time">今天 07:15</span></li>
+              <li><span class="item-name">轮渡 17:30 加班船</span><span class="item-brief">东岸码头新增晚班，可载 80 人，已开放购票</span><span class="item-time">今天 08:00</span></li>
+              <li><span class="item-name">隐藏小径北段封闭</span><span class="item-brief">碎石滑落清理中，预计 11 月 10 日恢复，南段正常</span><span class="item-time">昨天 18:20</span></li>
+              <li><span class="item-name">灯塔照明延长</span><span class="item-brief">夜间归途路线照明时间延至 22:00，覆盖末班轮渡</span><span class="item-time">今天 07:30</span></li>
+              <li><span class="item-name">结伴通行新增 15:00 批次</span><span class="item-brief">东岸驿站下午批次今日起开放，向导带队走潮汐通道</span><span class="item-time">今天 06:50</span></li>
+              <li><span class="item-name">西港阵风提醒</span><span class="item-brief">今日 15:00—17:00 阵风 5 级，徒步者注意防风</span><span class="item-time">今天 09:10</span></li>
+              <li><span class="item-name">轮渡 19:30 末班确认</span><span class="item-brief">东岸码头 19:30 班次正常，20:00 后无船</span><span class="item-time">今天 08:30</span></li>
+              <li><span class="item-name">潮汐通道晚窗口</span><span class="item-brief">16:50—19:10 可通行，建议 19:00 前通过</span><span class="item-time">今天 06:00</span></li>
+            </ul>
+          </section>
+
+          <!-- 板块4：分类入口 -->
+          <section class="panel" id="categories">
+            <h2 class="section-title">通行方式分类</h2>
+            <div class="cat-tags">
+              <a class="cat-tag" href="/#tide-pass">潮汐通道</a>
+              <a class="cat-tag" href="/#ferry-schedule">跨海轮渡</a>
+              <a class="cat-tag" href="/#hidden-path">隐藏小径</a>
+              <a class="cat-tag" href="/#night-route">夜间路线</a>
+              <a class="cat-tag" href="/#group-route">结伴通行</a>
+              <a class="cat-tag" href="/#safety-kit">安全装备</a>
+              <a class="cat-tag" href="/#weather-window">天气窗口</a>
+              <a class="cat-tag" href="/#gear-guide">装备清单</a>
+            </div>
+          </section>
+
+          <!-- 板块5：深度解析正文 -->
+          <section class="panel deep-dive" id="deep-analysis">
+            <h2 class="section-title">潮汐通道与轮渡的选择逻辑</h2>
+            <h3>潮汐通道：时间窗口决定一切</h3>
+            <p>潮汐通道的本质是一条只在退潮时露出的礁石路。每天有两个可通行窗口，通常出现在高潮后 3—5 小时。以今日为例，早窗口 07:20—10:40，晚窗口 16:50—19:10。走这条路线需要提前查看当日潮汐表，并预留至少 10 分钟的余量。如果携带大件行李或行动不便，不建议走潮汐通道，因为礁石路面不平整，部分路段需要手脚并用。</p>
+            <h3>跨海轮渡：稳定但受班次约束</h3>
+            <p>轮渡不受潮汐影响，但受天气和班次表约束。今日班次从 06:30 开始，每 1—2 小时一班，17:30 和 19:30 为加班船。轮渡的优势是可以携带大件行李、推车和宠物，航程 25 分钟，比潮汐通道略短。缺点是末班较早，20:00 后无船，如果错过末班，要么走夜间灯塔路线，要么等次日。轮渡票价为单程 15 海角币，可在东岸码头窗口或自助机购买。</p>
+            <h3>隐藏小径：适合体力好且不赶时间的人</h3>
+            <p>隐藏小径从灯塔遗址出发，经风蚀峡谷到西港后山，全程约 2.5 小时，爬升 180 米。南段路况较好，北段今日因碎石滑落封闭。选择这条路线的人通常是为了避开潮汐和轮渡的时间限制，同时享受沿途风景。需要注意的是，小径没有照明，不建议夜间行走。如果当天风力超过 4 级，山脊段会比较危险，建议改走潮汐通道或轮渡。</p>
+            <h3>如何根据自身情况选择</h3>
+            <ul>
+              <li>赶时间且行李少：优先潮汐通道，40 分钟直达。</li>
+              <li>携带大件行李或带小孩：优先轮渡，平稳且可放行李。</li>
+              <li>不赶时间且体力好：选隐藏小径南段，风景好且人少。</li>
+              <li>夜间返程：走灯塔照明路线，全程有路灯。</li>
+            </ul>
+          </section>
+
+          <!-- 板块6：体验指南/消费路径 -->
+          <section class="panel" id="experience-guide">
+            <h2 class="section-title">第一次走海角归途的体验建议</h2>
+            <p>如果是第一次从东岸回西港，建议按以下顺序建立判断：先看当天潮汐表，确认潮汐通道的窗口是否覆盖你的出发时间；如果窗口不合适，再查轮渡班次表，看最近一班船的时间；如果两者都不匹配，再考虑隐藏小径或夜间路线。</p>
+            <p>判断一条路线是否值得投入时间，主要看三个维度：时间成本（潮汐通道 40 分钟、轮渡 25 分钟加候船、隐藏小径 2.5 小时）、体力消耗（潮汐通道中等、轮渡低、隐藏小径高）、装备要求（潮汐通道需要防滑鞋、轮渡无特殊要求、隐藏小径需要登山杖和足够饮水）。类似条目比较时，先排除不符合体力或行李条件的路线，再在剩余选项里选时间最短的。</p>
+            <p>初次体验者可以从东岸驿站的结伴通行开始，每天 09:00 和 15:00 有向导带队走潮汐通道，免费参加，适合熟悉路况。如果带了老人或小孩，直接选轮渡更稳妥。</p>
+          </section>
+
+          <!-- 板块7：FAQ -->
+          <section class="panel faq-list" id="faq">
+            <h2 class="section-title">常见问题</h2>
+            <details>
+              <summary>潮汐通道一般每天开放几次？</summary>
+              <div class="faq-answer">通常每天两次，分别在高潮后 3—5 小时。具体时间随农历日期变化，今日为 07:20—10:40 和 16:50—19:10。建议出发前查看当日潮汐表。</div>
+            </details>
+            <details>
+              <summary>轮渡和潮汐通道哪个更快？</summary>
+              <div class="faq-answer">轮渡航程 25 分钟，但需要提前候船，实际总耗时约 40—50 分钟。潮汐通道步行约 40 分钟，不需要候船。如果正好赶上船班，轮渡略快；如果错过班次，潮汐通道更灵活。</div>
+            </details>
+            <details>
+              <summary>第一次走隐藏小径需要注意什么？</summary>
+              <div class="faq-answer">建议从南段入口进入，北段目前封闭。穿防滑登山鞋，带至少 1 升水，避开风力超过 4 级的时段。小径没有照明，务必在日落前通过。</div>
+            </details>
+            <details>
+              <summary>夜间从东岸回西港有哪些选择？</summary>
+              <div class="faq-answer">夜间可以走灯塔照明路线，全程有路灯，约 1.2 小时。轮渡末班为 19:30，20:00 后无船。潮汐通道夜间窗口结束后不可通行，不建议夜间走礁石路。</div>
+            </details>
+            <details>
+              <summary>带大件行李走哪条路线合适？</summary>
+              <div class="faq-answer">推荐跨海轮渡，可以携带大件行李和推车，航程平稳。潮汐通道的礁石路不适合拉杆箱，隐藏小径更不适合。轮渡单程票价 15 海角币。</div>
+            </details>
+            <details>
+              <summary>潮汐通道的礁石路滑不滑？</summary>
+              <div class="faq-answer">退潮后礁石表面通常较干，但背阴处和潮池边缘可能有水藻，建议穿防滑鞋。今日水位较低，大部分路段干燥，通行条件良好。</div>
+            </details>
+          </section>
+
+          <!-- 板块8：用户评论 -->
+          <section class="panel" id="comments">
+            <h2 class="section-title">通行者讨论</h2>
+            <div class="comment-list">
+              <div class="comment-item"><div class="comment-avatar">海</div><div class="comment-body"><div class="comment-name">海风轻拂</div><div class="comment-text">今天早上走的潮汐通道，07:20 准时放行，礁石路比想象中好走，40 分钟到西港。</div><div class="comment-time">今天 08:30</div></div></div>
+              <div class="comment-item"><div class="comment-avatar">西</div><div class="comment-body"><div class="comment-name">西港常客</div><div class="comment-text">轮渡 17:30 加班船很方便，不用挤 18:00 那班了。</div><div class="comment-time">今天 09:15</div></div></div>
+              <div class="comment-item"><div class="comment-avatar">灯</div><div class="comment-body"><div class="comment-name">灯塔守望者</div><div class="comment-text">隐藏小径北段封了，南段走起来还行，风蚀峡谷那段风景不错。</div><div class="comment-time">昨天 19:40</div></div></div>
+              <div class="comment-item"><div class="comment-avatar">夜</div><div class="comment-body"><div class="comment-name">夜行归途</div><div class="comment-text">昨晚走了灯塔路线，路灯很亮，一个人走也不怕。</div><div class="comment-time">昨天 22:10</div></div></div>
+              <div class="comment-item"><div class="comment-avatar">结</div><div class="comment-body"><div class="comment-name">结伴小队长</div><div class="comment-text">东岸驿站 15:00 批次今天开了，向导讲得很细，第一次走潮汐通道建议跟一次。</div><div class="comment-time">今天 10:05</div></div></div>
+              <div class="comment-item"><div class="comment-avatar">潮</div><div class="comment-body"><div class="comment-name">潮汐表爱好者</div><div class="comment-text">晚窗口 16:50 开始，建议 18:30 前通过，后面涨潮很快。</div><div class="comment-time">今天 07:50</div></div></div>
+              <div class="comment-item"><div class="comment-avatar">行</div><div class="comment-body"><div class="comment-name">行李多的人</div><div class="comment-text">带了一个 28 寸箱子，果断选轮渡，省事。</div><div class="comment-time">昨天 16:30</div></div></div>
+              <div class="comment-item"><div class="comment-avatar">风</div><div class="comment-body"><div class="comment-name">风中徒步</div><div class="comment-text">今天下午风力有点大，山脊段走起来吃力，建议改天。</div><div class="comment-time">今天 15:20</div></div></div>
+              <div class="comment-item"><div class="comment-avatar">月</div><div class="comment-body"><div class="comment-name">月牙湾住户</div><div class="comment-text">潮汐通道入口的水位牌更新很及时，赞一个。</div><div class="comment-time">今天 06:40</div></div></div>
+              <div class="comment-item"><div class="comment-avatar">轮</div><div class="comment-body"><div class="comment-name">轮渡常客</div><div class="comment-text">末班 19:30 有点早，希望能再延后半小时。</div><div class="comment-time">昨天 20:00</div></div></div>
+              <div class="comment-item"><div class="comment-avatar">石</div><div class="comment-body"><div class="comment-name">石头记</div><div class="comment-text">潮汐通道的礁石路有一段比较湿滑，建议穿抓地好的鞋。</div><div class="comment-time">昨天 11:20</div></div></div>
+              <div class="comment-item"><div class="comment-avatar">望</div><div class="comment-body"><div class="comment-name">望海路</div><div class="comment-text">隐藏小径南段 2 小时走完，带了两瓶水刚好够。</div><div class="comment-time">11 月 6 日</div></div></div>
+            </div>
+          </section>
+
+          <!-- 板块9：相关资讯 -->
+          <section class="panel" id="news">
+            <h2 class="section-title">相关资讯</h2>
+            <div class="news-list">
+              <div class="news-item">
+                <img class="news-thumb" src="https://picsum.photos/seed/news-tide/600/400" alt="潮汐通道水位监测站" width="600" height="400" loading="lazy">
+                <div class="news-content"><div class="news-title">月牙湾潮汐通道增设水位监测牌</div><div class="news-date">2026-11-08</div><div class="news-summary">东岸入口新增两块实时水位牌，可显示当前水位与下次通行窗口。</div></div>
+              </div>
+              <div class="news-item">
+                <img class="news-thumb" src="https://picsum.photos/seed/news-ferry/600/400" alt="东岸码头轮渡停靠" width="600" height="400" loading="lazy">
+                <div class="news-content"><div class="news-title">轮渡公司 11 月 8 日起加密晚班</div><div class="news-date">2026-11-07</div><div class="news-summary">17:30 与 19:30 两个加班船次正式运营，单程票价维持 15 海角币。</div></div>
+              </div>
+              <div class="news-item">
+                <img class="news-thumb" src="https://picsum.photos/seed/news-trail/600/400" alt="风蚀峡谷小径路况" width="600" height="400" loading="lazy">
+                <div class="news-content"><div class="news-title">隐藏小径北段碎石清理预计 11 月 10 日完成</div><div class="news-date">2026-11-06</div><div class="news-summary">养护队已进场清理，南段正常开放，建议徒步者绕行南段入口。</div></div>
+              </div>
+              <div class="news-item">
+                <img class="news-thumb" src="https://picsum.photos/seed/news-light/600/400" alt="灯塔夜间照明" width="600" height="400" loading="lazy">
+                <div class="news-content"><div class="news-title">灯塔照明时间延长至 22:00</div><div class="news-date">2026-11-05</div><div class="news-summary">覆盖轮渡末班到达时段，夜间归途路线全程有路灯。</div></div>
+              </div>
+              <div class="news-item">
+                <img class="news-thumb" src="https://picsum.photos/seed/news-group/600/400" alt="东岸驿站结伴集合" width="600" height="400" loading="lazy">
+                <div class="news-content"><div class="news-title">东岸驿站新增 15:00 结伴批次</div><div class="news-date">2026-11-04</div><div class="news-summary">每天 09:00 和 15:00 两批向导带队，免费参加，需提前十分钟到驿站。</div></div>
+              </div>
+              <div class="news-item">
+                <img class="news-thumb" src="https://picsum.photos/seed/news-wind/600/400" alt="西港风力监测站" width="600" height="400" loading="lazy">
+                <div class="news-content"><div class="news-title">西港午后阵风提醒：徒步者注意防风</div><div class="news-date">2026-11-03</div><div class="news-summary">15:00—17:00 阵风可达 5 级，山脊段行走需谨慎，建议改走轮渡。</div></div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 板块10：相关推荐 -->
+          <section class="panel" id="related">
+            <h2 class="section-title">延伸方向</h2>
+            <div class="rec-tags">
+              <span class="rec-tag">潮汐表查询方法</span>
+              <span class="rec-tag">轮渡购票方式</span>
+              <span class="rec-tag">灯塔路线夜间照明</span>
+              <span class="rec-tag">风蚀峡谷南段路况</span>
+              <span class="rec-tag">东岸驿站结伴规则</span>
+              <span class="rec-tag">防滑鞋选择建议</span>
+              <span class="rec-tag">西港天气窗口</span>
+              <span class="rec-tag">大件行李通行限制</span>
+            </div>
+          </section>
+
+          <!-- 板块11：热门榜单 -->
+          <section class="panel" id="ranking">
+            <h2 class="section-title">今日通行热度榜</h2>
+            <ol class="rank-list">
+              <li><span class="rank-name">月牙湾潮汐通道</span><span class="rank-score">9.6</span></li>
+              <li><span class="rank-name">东岸—西港跨海轮渡</span><span class="rank-score">9.2</span></li>
+              <li><span class="rank-name">灯塔夜间照明路线</span><span class="rank-score">8.9</span></li>
+              <li><span class="rank-name">风蚀峡谷隐藏小径南段</span><span class="rank-score">8.7</span></li>
+              <li><span class="rank-name">东岸驿站结伴通行</span><span class="rank-score">8.5</span></li>
+              <li><span class="rank-name">西港后山观景步道</span><span class="rank-score">8.2</span></li>
+            </ol>
+          </section>
+        </div>
+
+        <!-- 右侧辅助栏 -->
+        <aside class="sidebar">
+          <div class="panel">
+            <div class="sidebar-title">今日潮汐窗口</div>
+            <ul class="list-compact">
+              <li><span class="item-name">早窗口</span><span class="item-brief">07:20—10:40</span></li>
+              <li><span class="item-name">晚窗口</span><span class="item-brief">16:50—19:10</span></li>
+            </ul>
+            <p class="text-small text-soft mt-24">建议出发前 30 分钟查看实时水位。</p>
+          </div>
+          <div class="panel">
+            <div class="sidebar-title">轮渡班次</div>
+            <ul class="list-compact">
+              <li><span class="item-name">06:30</span><span class="item-brief">首班</span></li>
+              <li><span class="item-name">07:30</span><span class="item-brief">—</span></li>
+              <li><span class="item-name">09:00</span><span class="item-brief">—</span></li>
+              <li><span class="item-name">11:00</span><span class="item-brief">—</span></li>
+              <li><span class="item-name">13:00</span><span class="item-brief">—</span></li>
+              <li><span class="item-name">15:00</span><span class="item-brief">—</span></li>
+              <li><span class="item-name">17:30</span><span class="item-brief">加班船</span></li>
+              <li><span class="item-name">19:30</span><span class="item-brief">末班</span></li>
+            </ul>
+          </div>
+          <div class="panel">
+            <div class="sidebar-title">装备提示</div>
+            <p class="text-small">潮汐通道建议穿防滑鞋，带一件防风外套。隐藏小径需带 1 升以上饮水。夜间路线建议携带小型手电。</p>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </main>
+
+  <!-- 页尾 -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <span class="brand-text">今日海角大陆回家方式</span>
+        <p>汇集潮汐通道、跨海轮渡、隐藏小径与安全指引，为往返海角大陆的通行者提供具体路线与日常动态。</p>
+      </div>
+      <div class="footer-col">
+        <h4>路线</h4>
+        <a href="/#tide-pass">潮汐通道</a>
+        <a href="/#ferry-schedule">跨海轮渡</a>
+        <a href="/#hidden-path">隐藏小径</a>
+        <a href="/#night-route">夜间路线</a>
+      </div>
+      <div class="footer-col">
+        <h4>实用</h4>
+        <a href="/#safety-kit">安全装备</a>
+        <a href="/#weather-window">天气窗口</a>
+        <a href="/#group-route">结伴通行</a>
+        <a href="/#gear-guide">装备清单</a>
+      </div>
+      <div class="footer-col">
+        <h4>内容</h4>
+        <a href="/#faq">常见问答</a>
+        <a href="/#comments">通行者讨论</a>
+        <a href="/#news">相关资讯</a>
+        <a href="/#ranking">热度榜</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 今日海角大陆回家方式 · 部分内容为示例数据，仅用于展示页面结构</span>
+      <span>信息更新于 2026-11-08</span>
+    </div>
+  </footer>
+
+  <!-- 轻量脚本：无复杂交互，保持核心内容可读 -->
+  <script>
+    // 无交互依赖，仅保留空脚本以符合结构
+  </script>
+</body>
+                  </html>
